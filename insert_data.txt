@@ -1,0 +1,78 @@
+INSERT INTO actor (act_id, act_fname, act_lname, act_gender, act_age, act_nationality) VALUES
+(1, 'Tim', 'Robbins', 'M', 65, 'American'),
+(2, 'Morgan', 'Freeman', 'M', 83, 'American'),
+(3, 'Marlon', 'Brando', 'M', 80, 'American'),
+(4, 'Al', 'Pacino', 'M', 84, 'American'),
+(5, 'Christian', 'Bale', 'M', 50, 'British')
+ON DUPLICATE KEY UPDATE act_id=act_id;
+
+INSERT INTO director (dir_id, dir_fname, dir_lname) VALUES
+(1, 'Frank', 'Darabont'),
+(2, 'Francis Ford', 'Coppola'),
+(3, 'Christopher', 'Nolan'),
+(4, 'Quentin', 'Tarantino'),
+(5, 'Steven', 'Spielberg')
+ON DUPLICATE KEY UPDATE dir_id=dir_id;
+
+
+INSERT INTO movie (mov_id, mov_title, mov_year, mov_time, mov_lang, mov_dt_rel, mov_rel_country) VALUES
+(1, 'The Shawshank Redemption', 1994, 142, 'English', '1994-09-23', 'USA'),
+(2, 'The Godfather', 1972, 175, 'English', '1972-03-24', 'USA'),
+(3, 'The Dark Knight', 2008, 152, 'English', '2008-07-18', 'USA'),
+(4, 'Pulp Fiction', 1994, 154, 'English', '1994-10-14', 'USA'),
+(5, 'Schindler''s List', 1993, 195, 'English', '1993-12-15', 'USA')
+ON DUPLICATE KEY UPDATE mov_id=mov_id;
+
+
+INSERT INTO movie_cast (act_id, mov_id, role) VALUES
+(1, 1, 'Andy Dufresne'),
+(2, 1, 'Ellis Boyd "Red" Redding'),
+(3, 2, 'Don Vito Corleone'),
+(4, 2, 'Michael Corleone'),
+(5, 3, 'Bruce Wayne/Batman')
+ON DUPLICATE KEY UPDATE act_id=act_id;
+
+
+INSERT INTO genres (gen_id, gen_title) VALUES
+(1, 'Drama'),
+(2, 'Crime'),
+(3, 'Action'),
+(4, 'Thriller'),
+(5, 'Biography')
+ON DUPLICATE KEY UPDATE gen_id=gen_id;
+
+
+INSERT INTO movie_genres (mov_id, gen_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5)
+ON DUPLICATE KEY UPDATE mov_id=mov_id;
+
+
+INSERT INTO rating (mov_id, rev_id, rev_stars, num_o_ratings) VALUES
+(1, 1, 9, 1000),
+(2, 2, 9, 2000),
+(3, 3, 8, 1500),
+(4, 4, 8, 1800),
+(5, 5, 10, 1600)
+ON DUPLICATE KEY UPDATE mov_id=mov_id;
+
+
+INSERT INTO reviewer (rev_id, rev_name) VALUES
+(1, 'Reviewer One'),
+(2, 'Reviewer Two'),
+(3, 'Reviewer Three'),
+(4, 'Reviewer Four'),
+(5, 'Reviewer Five')
+ON DUPLICATE KEY UPDATE rev_id=rev_id;
+
+
+INSERT INTO movie_direction (dir_id, mov_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5)
+ON DUPLICATE KEY UPDATE dir_id=dir_id;
